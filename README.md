@@ -12,7 +12,7 @@ To make the data consistent with the original specification, invalid EDUCATION v
 
 # GitHub Repository Link
 
-Placeholder: https://github.com/yourusername/your-repository
+Placeholder: https://github.com/nimatha/ML_Assignment2
 
 # Models Used
 
