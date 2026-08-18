@@ -105,7 +105,9 @@ def train_and_evaluate_models():
         "KNN Classifier": KNeighborsClassifier(n_neighbors=5),
         "Gaussian Naive Bayes": GaussianNB(),
         "Random Forest Classifier": RandomForestClassifier(
-            n_estimators=300,
+            n_estimators=100,
+            max_depth=15,
+            min_samples_leaf=5,
             random_state=42,
             class_weight="balanced",
             n_jobs=-1,
@@ -125,7 +127,7 @@ def train_and_evaluate_models():
         pipeline.fit(X_train, y_train)
 
         model_path = MODEL_DIR / f"{model_name.lower().replace(' ', '_')}.joblib"
-        joblib.dump(pipeline, model_path)
+        joblib.dump(pipeline, model_path, compress=3)
 
         metrics = evaluate_model(pipeline, X_test, y_test)
         metrics["Model"] = model_name
